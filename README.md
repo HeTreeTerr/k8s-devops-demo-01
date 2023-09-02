@@ -18,5 +18,5 @@ nohup kubectl port-forward -n k8s-boot-ns --address 0.0.0.0  service/k8s-boot-sv
 6. 验证
 访问地址：  
 local: http://localhost:8080/index?param=hss  
-docker-compose: http://192.168.2.113:8088/index?param=hss
+docker-compose: http://192.168.2.113:8088/index?param=hss  
 mini-k8s: http://192.168.2.111:8088/index?param=hss
