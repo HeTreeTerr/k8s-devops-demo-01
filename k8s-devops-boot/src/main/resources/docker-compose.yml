@@ -1,0 +1,18 @@
+version: '3'
+services:
+
+  #k8s-devops-boot 服务端
+  k8s-devops-boot:
+    image: registry.cn-hangzhou.aliyuncs.com/he_tree_terr/k8s-devops-boot:0.0.1-SNAPSHOT
+    container_name: k8s-devops-boot
+    ports:
+      - 8088:8080
+    #volumes:
+      #- ./service/config:/config
+    networks:
+      - net1
+
+#自定义网络
+networks:
+  net1:
+    driver: bridge
