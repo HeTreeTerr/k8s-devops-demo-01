@@ -30,9 +30,16 @@ spec:
     spec:
       containers:
       - name: k8s-devops-boot
-        image: registry.cn-hangzhou.aliyuncs.com/he_tree_terr/k8s-devops-boot:0.0.1-SNAPSHOT #刚刚push到阿里云上的镜像地址
+        image: registry.cn-hangzhou.aliyuncs.com/he_tree_terr/k8s-devops-boot:0.0.2-SNAPSHOT #刚刚push到阿里云上的镜像地址
         ports:
         - containerPort: 8080 #默认springboot端口
+        env:
+        - name: PROFILE
+            value: dev
+        - name: JAVA_OPTS
+            value: -Xms128m -Xmx128m -Xss1024k -XX:MetaspaceSize=64m -XX:+PrintGCDetails
+        - name: HTTP_URL
+            value: http://k8s-boot-svc.k8s-boot-ns:8080/index?param=网络验证
 
 ---
 ## 服务
