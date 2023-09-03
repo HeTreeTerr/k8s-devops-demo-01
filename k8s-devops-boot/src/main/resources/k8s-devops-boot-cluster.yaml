@@ -37,9 +37,11 @@ spec:
         - name: PROFILE
             value: dev
         - name: JAVA_OPTS
-            value: -Xms128m -Xmx128m -Xss1024k -XX:MetaspaceSize=64m -XX:+PrintGCDetails
+          value: -Xms128m -Xmx128m -Xss1024k -XX:MetaspaceSize=64m -XX:+PrintGCDetails
         - name: HTTP_URL
-            value: http://k8s-boot-svc.k8s-boot-ns:8080/index?param=网络验证
+          value: http://k8s-boot-svc.k8s-boot-ns:8088/index?param=网络验证
+        - name: CUSTOM_NAME
+          value: 李二狗
 ---
 ## 服务
 

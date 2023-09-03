@@ -23,7 +23,7 @@ docker-compose: http://192.168.2.113:8088/index?param=hss
 mini-k8s: http://192.168.2.111:8088/index?param=hss
 7. 结论  
 1）boot部署后，pod之间通讯规则  
-http://k8s-boot-svc.k8s-boot-ns:8080/index?param=222  
+http://k8s-boot-svc.k8s-boot-ns:8088/index?param=222  
 http://[service_name].[namespace_name]:[service_port]/index?param=222
 2）配置项  
 通过env节点，可以设定boot的运行参数
