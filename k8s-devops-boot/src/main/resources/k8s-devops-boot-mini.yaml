@@ -1,3 +1,5 @@
+## minikube部署脚本（简化版）
+
 ## 命名空间
 
 apiVersion: v1
@@ -49,26 +51,3 @@ spec:
     targetPort: 8080
   type: NodePort
   #type: ClusterIP
-
----
-##Ingress
-
-#apiVersion: extensions/v1beta1
-#kind: Ingress
-#metadata:
-#  name: nginx-ingress
-#  labels:
-#    name: nginx-ingress
-#spec:
-#  IngressClass: nginx
-#  rules:
-#  - host: k8s.boot.com #所有的host这个域名请求 转发到上面的 Service= k8s-boot-svc
-#    http:
-#      paths:
-#      - pathType: Prefix
-#        path: "/"
-#        backend:
-#          service:
-#            name: k8s-boot-svc # 转发到 这个Service
-#            port:
-#              number: 8088

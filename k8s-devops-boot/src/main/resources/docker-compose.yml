@@ -1,3 +1,4 @@
+## docker-compose 实现部署（docker swarm不主流，跳过）
 version: '3'
 services:
 
