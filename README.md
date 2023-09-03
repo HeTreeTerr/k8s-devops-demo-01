@@ -28,4 +28,17 @@ http://[service_name].[namespace_name]:[service_port]/index?param=222
 2）配置项  
 通过env节点，可以设定boot的运行参数
 ### 1.2 k8s-cluster部署过程
-todo...
+1. 打包，生成镜像并推送到镜像仓库
+2. centos7安装kubeadm集群环境
+3. centos7上拉取镜像
+4. 部署  
+执行脚本:  
+``
+kubectl apply -f  k8s-devops-boot-cluster.yaml
+``  
+生成命名空间、pod、deployment、service、ingress
+5. 修改访问机的hosts  
+ip  k8s.boot.com
+6. 验证  
+访问地址:  
+local: http://k8s.boot.com/index?param=123

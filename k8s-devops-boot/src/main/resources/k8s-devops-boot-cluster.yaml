@@ -35,7 +35,7 @@ spec:
         - containerPort: 8080 #默认springboot端口
         env:
         - name: PROFILE
-            value: dev
+          value: dev
         - name: JAVA_OPTS
           value: -Xms128m -Xmx128m -Xss1024k -XX:MetaspaceSize=64m -XX:+PrintGCDetails
         - name: HTTP_URL
@@ -57,8 +57,8 @@ spec:
   - port: 8088 #对外8088端口
     protocol: TCP
     targetPort: 8080
-  type: NodePort
-  #type: ClusterIP
+  #type: NodePort
+  type: ClusterIP
 
 ---
 ##Ingress
@@ -67,18 +67,15 @@ apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
   name: nginx-ingress
+  namespace: k8s-boot-ns
   labels:
     name: nginx-ingress
 spec:
-  IngressClass: nginx
   rules:
   - host: k8s.boot.com #所有的host这个域名请求 转发到上面的 Service= k8s-boot-svc
     http:
       paths:
-      - pathType: Prefix
-        path: "/"
+      - path: "/"
         backend:
-          service:
-            name: k8s-boot-svc # 转发到 这个Service
-            port:
-              number: 8088
+          serviceName: k8s-boot-svc # 转发到 这个Service
+          servicePort: 8088
